@@ -18,7 +18,7 @@ Am creat un sistem de plată folosind un card NFC care emite un UID unic atunci 
 
 Feedback vizual:
 - Dacă tranzacția este efectuată cu succes, LED-ul RGB se aprinde verde și buzzer-ul acționează o dată.
-- Dacă **tranzacția este respinsă (fonduri insuficiente), LED-ul se aprinde roșu și buzzer-ul acționează de 3 ori.
+- Dacă tranzacția este respinsă (fonduri insuficiente), LED-ul se aprinde roșu și buzzer-ul acționează de 3 ori.
 - La fiecare citire de card, buzzer-ul acționează o dată.
 
 
