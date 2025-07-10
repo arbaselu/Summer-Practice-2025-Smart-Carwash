@@ -1,57 +1,79 @@
-#Summer Practice 2025 - Smart Carwash
+# Summer Practice 2025 - Smart Carwash
+Acest proiect realizat în cadrul practicii de vară 2025 integrează două componente principale:
 
-Acest proiect realizat in cadrul practicii de vara 2025 integreaza doua componente principale:
-1.Un cititor de carduri NFC, modul PN532 ,placuta ESP32 ,led RGB, buzzer activ si LCD.Conectarea la o baza de date mySQL.
-2.O aplicatie mobila cu Flutter Framework si Dart, conectata la o baza de date Firebase.Aplicatia se conecteaza prin Bluetooth la o placuta Arduino R3.
+1. Un cititor de carduri NFC (modul PN532), plăcuță ESP32, LED RGB, buzzer activ și LCD. Conectarea la o bază de date MySQL.
+2. O aplicație mobilă cu Flutter Framework și Dart, conectată la o bază de date Firebase. Aplicația se conectează prin Bluetooth la o plăcuță Arduino R3.
 
-Ambele proiecte au fost gandite ca parte a unui sistem inteligent al unei spalatorii auto.
-
-#Partea 1
-Am creat un sistem de plata folosind un card NFC care emite un uid unic atunci cand este citit de modulul PN532.Am creat o baza de data cu ajutorul mySQL, in care am stocat uid urile, le am atribuit fiecaruia un nume de utilizator, dar si o suma de bani.
-Din interfata web utilizatorul selecteaza un numar de jetoane, apoi se trimite catre terminal o cerere de plata si se asteapta scanarea unui card NFC.
-Dupa ce uid ul cardului este identificat, din acel cont sunt retrasi banii aferenti tranzactiei si se transfera intr un alt tabel al bazei de date numit "cont firma".
-Daca tranzactia a fost efectuata cu succes RGB ul se aprinde in culoarea verde si buzzer ul actioneaza o data, daca tranzactia este respinsa(in urma fondurilor insuficiente) ledul se aprinde in culoarea rosu si buzzer ul actioneaza de 3 ori.La citirea cardului, buzzer ul mai actioneaza o data.
-
-#Partea 2
-Aplicatia mobila permite conectarea printr-un modul Bluetooth HC-05 la o placuta Arduino R3 care are conectat un LCD pe care este afisat programul de spalare selectat din aplicatie de client, se poate urmari si timpul ramas pentru program.
-Proiectul mai cuprinde si 5 leduri colorate, cate o culoare alocata pentru fiecare program de spalare.
-
-Aplicatia mobila include urmatoarele functionalitati:
-
-Autentificare:
--Login cu email si parola
--Autentificare cu Google
--Autentificare cu Facebook
--Roluri diferinte de user si admin
-
-Un panou principal care cuprinde:
--nume utilizator
--nr. jetoane
--jurnal de activitati
--buton de ajutor
+Ambele proiecte au fost gândite ca parte a unui sistem inteligent al unei spălătorii auto.
 
 
-Control spalatorie auto din tabul Wash:
--selectarea tipului de spalare
--conectarea prin Bluetooth la microcontroller
--trimitere comenzi catre Arduino pentru activare
+# Partea 1 – Sistem de plată cu NFC
 
-Sistem de Tichete (Help Center):
--utilizatorul poate trimite un tichet de suport
--mesajele se salveaza in Firebase si sunt vizibile de admin
--adminul si clientul pot conversa in timp real
--afisare timp scurs de la deschiderea tichetului („acum 5 min” etc.)
--posibilitatea de a compensa cu jetoane direct din panoul admin
--inchidere si redeschidere de tichete
+Am creat un sistem de plată folosind un card NFC care emite un UID unic atunci când este citit de modulul PN532.
 
-Plata cu Stripe
--alegerea unui numar de jetoane si posibilitatea de a cumpara cu Stripe - plata este gestionata pe un server Flask
+- Am creat o bază de date MySQL, în care am stocat UID-urile.
+- Fiecărui UID i-am atribuit un nume de utilizator și o sumă de bani.
+- Din interfața web, utilizatorul selectează un număr de jetoane, apoi se trimite către terminal o cerere de plată și se așteaptă scanarea unui card NFC.
+- După identificarea UID-ului, din acel cont sunt retrași banii aferenți tranzacției și se transferă într-un alt tabel numit cont_firma.
+
+Feedback vizual:
+- Dacă tranzacția este efectuată cu succes, LED-ul RGB se aprinde verde și buzzer-ul acționează o dată.
+- Dacă **tranzacția este respinsă (fonduri insuficiente), LED-ul se aprinde roșu și buzzer-ul acționează de 3 ori.
+- La fiecare citire de card, buzzer-ul acționează o dată.
 
 
-#Practica de Vara – 2025#
-Facultatea de Automatica, Calculatoare și Electronica – Universitatea din Craiova
-Student: Arbaselu Mario Ionut
-Profesor coordonator: Hurezeanu Bogdan
+
+# Partea 2 – Aplicație mobilă
+
+Aplicația permite conectarea printr-un modul Bluetooth HC-05 la o plăcuță Arduino R3, care are conectat un LCD.
+
+Funcționalități:
+
+- Afișarea programului de spălare selectat de client.
+- Afișarea timpului rămas pentru program.
+- 5 LED-uri colorate – câte un LED pentru fiecare program de spălare.
+
+# Autentificare:
+
+- Login cu email și parolă
+- Autentificare cu Google
+- Autentificare cu Facebook
+- Roluri diferite: user / admin
+
+# Panou principal:
+
+- Nume utilizator
+- Număr de jetoane
+- Jurnal de activități
+- Buton de ajutor
+
+# Control spălătorie – Tabul *Wash*:
+
+- Selectare tip spălare
+- Conectare prin Bluetooth la Arduino
+- Trimitere comenzi pentru activare program
+
+# Sistem de Tichete:
+
+- Utilizatorul poate trimite un tichet de suport
+- Mesajele se salvează în Firebase și sunt vizibile de admin
+- Conversație în timp real între client și admin
+- Afișare timp scurs de la deschiderea tichetului (ex: „acum 5 minute”)
+- Posibilitatea de a compensa cu jetoane din panoul admin
+- Închidere și redeschidere tichete
+
+# Plata cu Stripe:
+
+- Alegerea unui număr de jetoane
+- Plata este procesată pe un server Flask
+
+
+
+# Practica de vară – 2025
+
+**Facultatea de Automatică, Calculatoare și Electronică – Universitatea din Craiova**  
+**Student:** Arbaselu Mario Ionuț  
+**Profesor coordonator:** Hurezeanu Bogdan
 
 
 
