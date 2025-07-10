@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">spalatorie_auto</string>
+
+    <string name="facebook_app_id">754130927775774</string>
+
+    <string name="facebook_client_token">8ce3b51fdbe7298dc29614bebaa7bcf4</string>
+
+    <string name="fb_login_protocol_scheme">fb754130927775774</string>
+</resources>

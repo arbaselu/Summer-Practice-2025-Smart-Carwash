@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>JetWash – Achizitionare Jetoane</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font personalizat -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- Iconite Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 420px;
+            width: 100%;
+            border: 2px solid #007bff;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .logo i {
+            font-size: 48px;
+            color: #007bff;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 10px 0 5px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .price-display {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+        </div>
+        <h1>JetWash</h1>
+
+        <fieldset>
+            <legend>Numar de jetoane:</legend>
+            <label><input type="radio" name="tokens" value="1" checked> 1 jeton – 4 RON</label>
+            <label><input type="radio" name="tokens" value="3"> 3 jetoane – 10 RON (promo)</label>
+            <label><input type="radio" name="tokens" value="7"> 7 jetoane – 20 RON (promo)</label>
+            <label><input type="radio" name="tokens" value="10"> 10 jetoane – 27 RON (promo)</label>
+        </fieldset>
+
+        <div class="price-display" id="price">Pret: 4 RON</div>
+
+        <button onclick="pay()">Plateste</button>
+    </div>
+
+<script>
+    const priceTable = {
+        1: 4,
+        3: 10,
+        7: 20,
+        10: 27
+    };
+
+    const priceDisplay = document.getElementById('price');
+    const tokenRadios = document.querySelectorAll('input[name="tokens"]');
+
+    tokenRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const numTokens = parseInt(document.querySelector('input[name="tokens"]:checked').value);
+            const price = priceTable[numTokens];
+            priceDisplay.textContent = `Pret: ${price} RON`;
+        });
+    });
+
+   function pay() {
+    const tokens = parseInt(document.querySelector('input[name="tokens"]:checked').value);
+
+   fetch('/porneste_scanare', {
+            method: 'POST'
+        }).then(() => {
+            window.location.href = `/asteapta?tokens=${tokens}`;
+        });
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513253625021",
+    "project_id": "spalatorie-fe672",
+    "storage_bucket": "spalatorie-fe672.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513253625021:android:de655d259710aaa8383bd4",
+        "android_client_info": {
+          "package_name": "com.example.spalatorie_auto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLJ9LPD0eeKQzqxTDSLpHzeYd4FqIPWlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
